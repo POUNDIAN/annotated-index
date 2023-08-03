@@ -70,7 +70,7 @@ There are some flaws in the Textract output and the data will need cleaning at s
 
 We might want to provide a way for users to suggest there is an error in an entry. Given a hit, we can manually check with a copy of the book.
 
-ChatGPT uses the token '(?)' where it cannot discern a word. We need to go through and fix these.
+ChatGPT uses the token '(?)' where it cannot discern a word. We need to go through and fix these. Wait: seems they are in the raw. Maybe they were in the An.Index.
 
 ChatGPT uses the token 'Unknown' for Page Number where it has failed to parse. We need to go through and fix these too.
 
