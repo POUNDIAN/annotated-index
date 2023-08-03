@@ -11,6 +11,8 @@ The raw was first formatted into JSON by ChatGPT. Note that ChatGPT introduced s
 
 The goal here is to provide a database and API which can provide all references in the Annotated Index concerning any given Canto. We also want to be able to look up reference and discover where it is referenced in The Cantos.
 
+Though the An.Index is an outdated example of annotation for The Cantos, we intend to conglomerate all data for use instead of choosing only the most updated and accurate data. The cause for this can be read ...
+
 ## Manipulations
 
 We will have to manipulate the data somewhat. Where the An.Index provides page number, we want to provide line number(s).
@@ -19,6 +21,25 @@ The An.Index uses capitalised words in the detail to suggest another entry. We w
 
 The An.Index uses square bracketted terms to denote that they actually don’t appear in a Canto, but might be a fundamental reference of another entry in a Canto. (Check the An.Index preface for this.)
 
+There are also Canto Number / Page Numbers in square brackets. Investigate these.
+
+Entries are not direct quotes from The Cantos. Edwards and Vasse reorders them into formats better suited for reference. Because entries can refer to multiple instances, they cannot always be direct quotes. At some point in the pipeline we need to provide the direct quote for highlighting. It might be good to have this in the per-Canto data.
+
 ## Errors
 
 There are some flaws in the Textract output and the data will need cleaning at some point. One common example is the substitution of '1' for 'i' or 'I'.
+
+We might want to provide a way for users to suggest there is an error in an entry. Given a hit, we can manually check with a copy of the book.
+
+ChatGPT uses the token '(?)' where it cannot discern a word. We need to go through and fix these.
+
+ChatGPT uses the token 'Unknown' for Page Number where it has failed to parse. We need to go through and fix these too.
+
+Might also see entries such as this (if I made a mistake):
+
+```json
+  "DOUGLAS": {
+    "Page Numbers": "[54]",
+    "Entry Details": "Incomplete reference, likely referring to someone named Douglas."
+  },
+```
