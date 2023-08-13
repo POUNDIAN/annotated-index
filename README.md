@@ -62,6 +62,8 @@ From the An.Index:
  Emperor 65/125, 69/150, 151 see FREDERICK II, of Prussia. 
 ```
 
+Edit: I think at other points ChatGPT has allowed us multiple same keys; that makes the JSON invalid but at least we have all the information.
+
 We also have instances of, e.g., "See Appendix A."
 
 ## Errors
