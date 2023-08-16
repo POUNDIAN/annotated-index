@@ -76,7 +76,7 @@ We need to investigate what data might have been dropped.
 
 ## Errors
 
-There are some flaws in the Textract output and the data will need cleaning at some point. One common example is the substitution of '1' for 'i' or 'I'.
+There are some flaws in the Textract output and the data will need cleaning at some point. One common example is the substitution of '1' for 'i' or 'I'. A common example is "1S", but I'm sure there are more. We also have instances of invalid brackets (in page numbers), for example `"a/b]"`
 
 We might want to provide a way for users to suggest there is an error in an entry. Given a hit, we can manually check with a copy of the book.
 
@@ -94,3 +94,23 @@ Might also see entries such as this (if I made a mistake):
 ```
 
 Question: Do page numbers with hyphens survive the parse?
+
+Sometimes `"N/A"` is used for an empty entry, sometimes `null`.
+
+Also seems there are some special characters, for example `\n` that slip in. Need to understand our handling of these; probably an OCR mistake requiring correction.
+
+## Suggested Measurements
+
+[poundian#142](https://github.com/louisdeb/poundian/issues/142) suggests counting the number of translations by language.
+
+We can also count the number of references by Page Number length & see if we have any insight into the most used material. This count can be extended by observing references in Entry Details of other entries. We might want to count how many entries are referenced by other entries, i.e. secondary references that accumulate attention on the primary entry. Then there are also non-obvious references, such as 'See Inferno' which makes no mention of 'Dante' (entry: "si com' ad Arli: 80/86: (It) so as at ARLES. (See: Inferno, 9, 112).")
+
+So we might want to store this JSON parse in a dynamo db. That will allow us to query it from multiple different programs and have one updatable data. TAI is so behind TCP that I don't know if it can form a basis for better annotation, although TAI might have more entries than TCP?
+
+Obviously if we have a db we especially need to handle having duplicate keys.
+
+Also if we have a db we can have an API that can return us e.g. per-Canto annotations.
+
+## Otherwise
+
+So much of the work done so far and so many of the suggestions here would become lightweight if we had money to use GPT in pipeline.
