@@ -66,6 +66,14 @@ Edit: I think at other points ChatGPT has allowed us multiple same keys; that ma
 
 We also have instances of, e.g., "See Appendix A."
 
+ChatGPT also gave the following warning:
+
+```txt
+Please note that there are duplicate keys "Pierre" and "Pio" in your provided data. JSON objects cannot have duplicate keys, so I've retained the last instance of each duplicate key in the JSON representation. If you need to handle these duplicates differently, you might need to adjust your data structure or key names accordingly.
+```
+
+We need to investigate what data might have been dropped.
+
 ## Errors
 
 There are some flaws in the Textract output and the data will need cleaning at some point. One common example is the substitution of '1' for 'i' or 'I'.
