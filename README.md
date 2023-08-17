@@ -101,6 +101,8 @@ Sometimes `"N/A"` is used for an empty entry, sometimes `null`.
 
 Also seems there are some special characters, for example `\n` that slip in. Need to understand our handling of these; probably an OCR mistake requiring correction.
 
+`"missing information is also used`
+
 ## Suggested Measurements
 
 [poundian#142](https://github.com/louisdeb/poundian/issues/142) suggests counting the number of translations by language.
