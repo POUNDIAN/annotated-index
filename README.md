@@ -78,6 +78,8 @@ We need to investigate what data might have been dropped.
 
 There are some flaws in the Textract output and the data will need cleaning at some point. One common example is the substitution of '1' for 'i' or 'I'. A common example is "1S", but I'm sure there are more. We also have instances of invalid brackets (in page numbers), for example `"a/b]"`
 
+Common examples of the '1' error are `1S`, `T1` and `t1`, `a1`, ... (These will make searching easier.) Actually distinguishing between `l` and `i` might need the hardcopy.
+
 We might want to provide a way for users to suggest there is an error in an entry. Given a hit, we can manually check with a copy of the book.
 
 ChatGPT uses the token '(?)' where it cannot discern a word. We need to go through and fix these. Wait: seems they are in the raw. Maybe they were in the An.Index.
@@ -109,8 +111,13 @@ So we might want to store this JSON parse in a dynamo db. That will allow us to 
 
 Obviously if we have a db we especially need to handle having duplicate keys.
 
-Also if we have a db we can have an API that can return us e.g. per-Canto annotations.
+Also if we have a db we can have an API that can return us e.g. per-Canto annotations. Part of that API might handle error reporting & correction.
 
 ## Otherwise
 
 So much of the work done so far and so many of the suggestions here would become lightweight if we had money to use GPT in pipeline.
+
+## Problem
+
+How can we tell if we have missed any entries from TAI?
+
