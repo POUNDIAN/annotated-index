@@ -18,7 +18,7 @@ Though the An.Index is an outdated example of annotation for The Cantos, we inte
 
 ## Manipulations
 
-The An.Index uses capitalised words in the detail to suggest another entry. We want to be able to connect these entries somehow.
+The An.Index uses capitalises words in the detail to suggest another entry. We want to be able to connect these entries somehow.
 
 The An.Index uses square bracketted terms to denote that they actually don’t appear in a Canto, but might be a fundamental reference of another entry in a Canto. (Check the An.Index preface for this.)
 
@@ -26,63 +26,16 @@ There are also Canto Number / Page Numbers in square brackets. Investigate these
 
 Entries are not direct quotes from The Cantos. Edwards and Vasse reorders them into formats better suited for reference. Because entries can refer to multiple instances, they cannot always be direct quotes. At some point in the pipeline we need to provide the direct quote for highlighting. It might be good to have this in the per-Canto data.
 
-We need to handle the entry "Emperor" which is not parseable. Currently: 
-
-```json
-"Emperor": {
-    "Page Numbers": "18/80, 34/15, 38/41, 54/22, 54/25, 54/28, 54/32, 55/39, 55/41, 55/43, 55/44, 56/52, 56/56, 57/60, 58/63, 58/65, 60/74, 60/78, 61/80, 61/81, 61/82, 61/85",
-    "Entry Details": "Various emperors mentioned throughout the text."
-  },
-```
-
-From the An.Index:
-
-```txt
- Emperor 9/34: see SIGISMUND V, Holy Roman Emperor. 
- Emperor: 
- 18/80: see KUBLAI KHAN. 
- Emperor: 34/15: see ALEXANDER I, of Russia. 
- Emperor: 38/41: see NAPOLEON III. 
- Emperor: 54/22: see KAO-HOANG-TI. 
- Emperor: 54/25: see HAN-SIUEN-TI. 
- Emperor: 54/28: see TCIN OU TI 
- Emperor: 54/32: see TAI-TSONG. 
- EMPEROR 
- [60] 
- Emperor: 55/39: see CHEKING-TANG. 
- Emperor. 55/41: see TAI-TSQU. 
- Emperor 55/43, 44. see CHIN-TSONG. 
- Emperor 56/52: see GIN-TSONG. 
- Emperor: 56/56 see INGAIYCOU-CHILITALA. 
- Emperor 57/60: see OU-TSONG. 
- Emperor: 58/63 see CHIN-TSONG. 
- Emperor 58/65. see TAI-TSONG. 
- Emperor 60/74, 78 see KANG-HI. 
- Emperor 61/80,81,82 see YONG-TCHING. 
- Emperor. 61/85: see KIEN-LONG. 
- Emperor 65/125, 69/150, 151 see FREDERICK II, of Prussia. 
-```
-
-Edit: I think at other points ChatGPT has allowed us multiple same keys; that makes the JSON invalid but at least we have all the information.
-
 We also have instances of, e.g., "See Appendix A."
-
-ChatGPT also gave the following warning:
-
-```txt
-Please note that there are duplicate keys "Pierre" and "Pio" in your provided data. JSON objects cannot have duplicate keys, so I've retained the last instance of each duplicate key in the JSON representation. If you need to handle these duplicates differently, you might need to adjust your data structure or key names accordingly.
-```
 
 
 ## Errors
 
 We also have instances of invalid brackets (in page numbers), for example `"a/b]"`
 
-ChatGPT uses the token '(?)' where it cannot discern a word. We need to go through and fix these. Wait: seems they are in the raw. Maybe they were in the An.Index.
-
 Question: Do page numbers with hyphens survive the parse?
 
-Also seems there are some special characters, for example `\n` that slip in. Need to understand our handling of these; probably an OCR mistake requiring correction.
+Also seems there are some special characters, for example `\n` that slip in. Need to understand our handling of these; probably an OCR mistake requiring correction. No actually looks like they are true to The Cantos. We might just want to use `/`.
 
 How can we tell if we have missed any entries from TAI? We need to investigate what data might have been dropped. For example we had lost `"commerciabili bene"`, possibly because we already had `"commerciabili"`?
 
