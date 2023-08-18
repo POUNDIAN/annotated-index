@@ -84,8 +84,13 @@ Question: Do page numbers with hyphens survive the parse?
 
 Also seems there are some special characters, for example `\n` that slip in. Need to understand our handling of these; probably an OCR mistake requiring correction.
 
-How can we tell if we have missed any entries from TAI? We need to investigate what data might have been dropped.
+How can we tell if we have missed any entries from TAI? We need to investigate what data might have been dropped. For example we had lost `"commerciabili bene"`, possibly because we already had `"commerciabili"`?
 
+Details contain something like `"Various... mentioned..."` for cases where keys clash.
+
+If an entry string ends in `:` we should remove that char.
+
+**Lots of confusion between O and Q.** If we know where we are in the alphabet we can correct the entries fairly easily.
 
 ## Suggested Measurements
 
@@ -180,3 +185,5 @@ Often `11` is found in place of `"` (or `\"`)
 ChatGPT uses the token 'Unknown' for Page Number where it has failed to parse. We need to go through and fix these too. (Replaced with empty string)
 
 Sometimes `"N/A"` is used for an empty entry, sometimes `null`. (Replaced with empty string)
+
+I am now appending `(1)`, `(2)`, ... to distinguish same keys. Sometimes square brackets are added to keys e.g. `"Alfonso"` and `"[Alfonso]"` to avoid duplicates; I have caught a few of these.
