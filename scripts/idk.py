@@ -3,7 +3,7 @@ import re
 from utils.getter import annotated_index
 
 ai = annotated_index()
-out = {}
+missed = {}
 
 for entry in ai:
     page_numbers = ai[entry]["Page Numbers"]
@@ -16,5 +16,8 @@ for entry in ai:
         ai[entry]["cantos"] = search
 
         # This loses information if we have multiple instances in one canto.
+    else:
+        missed[entry] = ai[entry]
 
-print(ai)
+# print(ai)
+print(missed)
