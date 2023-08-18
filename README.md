@@ -100,19 +100,6 @@ Obviously if we have a db we especially need to handle having duplicate keys.
 Also if we have a db we can have an API that can return us e.g. per-Canto annotations. Part of that API might handle error reporting & correction. We might want to provide a way for users to suggest there is an error in an entry. Given a hit, we can manually check with a copy of the book.
 
 
-## Otherwise
-
-So much of the work done so far and so many of the suggestions here would become lightweight if we had money to use GPT in pipeline.
-
-
-## Checks
-
-- `"Gruss Gott, 11 Der Herr! \"Tatile is gekommen!\""` for the 11
-- `"Otreus, King"` for the ff
-- `"Amarii"` for the entry name
-- `Cannabich` for the 11 at the end of details
-
-
 ## Reforming Page Numbers
 
 So we want to extract Canto number from Page Numbers. We can pretty much discard the page & perform a search for the line, as we have in the past.
