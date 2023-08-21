@@ -1,6 +1,7 @@
+import json
 import re
 
-from utils.getter import annotated_index
+from utils.getter import annotated_index, write_json
 
 
 def parse_canto_and_pages(text):
@@ -66,19 +67,32 @@ def get_references(items):
 
 
 ai = annotated_index()
+new = {}
 
 for entry in ai:
-    page_numbers = ai[entry]["Page Numbers"]
+    page_numbers = ai[entry]['Page Numbers']
 
-    # Clean page_numbers
-    page_numbers = page_numbers.replace(' ', '')
-    page_numbers = page_numbers.replace(';', ',')
+    try:
+        details = ai[entry]['Entry Details']
+    except KeyError:
+        details = ''
 
-    results = parse_canto_and_pages(page_numbers)    
+    cleaned_page_numbers = page_numbers.replace(' ', '')
+    cleaned_page_numbers = cleaned_page_numbers.replace(';', ',')
+
+    results = parse_canto_and_pages(cleaned_page_numbers)    
 
     references, implicit_page_references, implicit_canto_references = get_references(results.items())
-    
-    print(page_numbers)
-    print('\t', references)
-    print('\t', implicit_page_references)
-    print('\t', implicit_canto_references)
+
+    values = {
+        'Page Numbers': page_numbers,
+        'Entry Details': details,
+        'references': references,
+        'implicit_page_references': implicit_page_references,
+        'implicit_canto_references': implicit_canto_references,
+    }
+
+    new[entry] = values
+
+new = json.dumps(new, ensure_ascii=False, indent=4).encode('utf-8')
+write_json(new, 'annotated-index')
