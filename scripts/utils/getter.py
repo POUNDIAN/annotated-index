@@ -1,7 +1,9 @@
 import json
 
-def annotated_index():
-    path = '../backups/annotated-index.json'
+def get_backup_annotated_index():
+    return annotated_index('../backup/annotated-index.json')
+
+def annotated_index(path='../annotated-index.json'):
     with open(path, 'r') as f:
         return json.load(f)
 
