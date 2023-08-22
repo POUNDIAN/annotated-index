@@ -1,5 +1,6 @@
-import json
-from utils.getter import annotated_index, write_json
+import matplotlib.pyplot as plt
+
+from utils.getter import annotated_index, get_json_file, write_json, encode_json
 
 ai = annotated_index()
 scores = {}
@@ -25,5 +26,20 @@ for entry in ai:
     scores[entry] = total
 
 scores = sorted(scores.items(), key=lambda s: s[1], reverse=True)
-scores = json.dumps(scores, indent=4).encode('utf-8')
+scores = encode_json(scores)
 write_json(scores, 'scores')
+
+
+def display_scores():
+    # kinda crummy
+    scores = get_json_file('scores.json')
+    values = []
+
+    for elem in scores:
+        score = elem[1]
+        values.append(score)
+
+    plt.hist(values)
+    plt.show()
+
+display_scores()

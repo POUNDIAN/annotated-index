@@ -1,0 +1,82 @@
+{
+    "(Arab)": {
+        "language": "Arabian",
+        "count": 1
+    },
+    "(Ch)": {
+        "language": "Chinese",
+        "count": 38
+    },
+    "(Dut)": {
+        "language": "Dutch",
+        "count": 4
+    },
+    "(Fr)": {
+        "language": "French",
+        "count": 180
+    },
+    "(Ger)": {
+        "language": "German",
+        "count": 31
+    },
+    "(Gr)": {
+        "language": "Greek",
+        "count": 61
+    },
+    "(Heb)": {
+        "language": "Hebrew",
+        "count": 5
+    },
+    "(It)": {
+        "language": "Italian",
+        "count": 454
+    },
+    "(Jap)": {
+        "language": "Japanese",
+        "count": 9
+    },
+    "(L)": {
+        "language": "Latin",
+        "count": 360
+    },
+    "(ME)": {
+        "language": "Middle English",
+        "count": 2
+    },
+    "(OE)": {
+        "language": "Old English",
+        "count": 5
+    },
+    "(O Fr)": {
+        "language": "Old French",
+        "count": 9
+    },
+    "(Pol)": {
+        "language": "Polish",
+        "count": 1
+    },
+    "(Pr)": {
+        "language": "Provençal",
+        "count": 30
+    },
+    "(Russ)": {
+        "language": "Russian",
+        "count": 3
+    },
+    "(Sp)": {
+        "language": "Spanish",
+        "count": 28
+    },
+    "(Hind)": {
+        "language": "Hindi",
+        "count": 1
+    },
+    "(Magyar)": {
+        "language": "Magyar (Hungarian)",
+        "count": 2
+    },
+    "(African)": {
+        "language": "African",
+        "count": 1
+    }
+}
