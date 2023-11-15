@@ -6,8 +6,10 @@ authors = ["Louis de Beaumont <debeaumont.louis@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "3.10.12"
 matplotlib = "^3.7.2"
+transformers = "^4.32.0"
+tensorflow = "^2.13.0"
 
 
 [build-system]
