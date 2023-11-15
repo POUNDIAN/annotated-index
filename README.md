@@ -1,5 +1,8 @@
 # annotated-index
-Digitising The Annotated Index to The Cantos by Edwards and Vasse
+
+This repo contains the Annotated Index to Cantos I-LXXI by Edwards and Vasse in raw text form and also in JSON format. The conversion from txt to json was mostly done using ChatGPT (a laborious process we could pipeline given financial resources to use powerful models via API). The code in this repo either cleans the data (e.g. OCR errors) or makes small measurements on its content (e.g. language frequencies).
+
+Having the annotated index in JSON format allows fast querying. We could turn this repo into a small lambda server with an API and have the Annotated Index accessible as a micro-service.
 
 
 ## Creation
