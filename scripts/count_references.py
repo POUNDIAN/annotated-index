@@ -42,4 +42,4 @@ def display_scores():
     plt.hist(values)
     plt.show()
 
-display_scores()
+# display_scores()
